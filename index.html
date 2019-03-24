@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="http://fe.it-academy.by/JQ/jquery.js"></script>
+
+  </head>
+  <body>
+      <div class="flex-container modal" id="id_title">
+          <img id="id_avtor" src="./img/avtor.png">
+          <div id="id_nadpis" style="text-align: center; color: #F97A13; position: relative; width: 300px; font-size: 0px; font-weight: bold; margin: 20px;  ">Выберите уровень сложности</div>
+          <div class='flex-item button easy' id="id_easy" style="font-weight: bold; background-color: #93F0FD; color: #12326D">Новичок</div>
+          <div class='flex-item button normal' id="id_normal" style="font-weight: bold;background-color: #93F0FD; color: #7BDA68">Любитель</div>
+          <div class='flex-item button hard' id="id_hard" style="font-weight: bold;background-color: #93F0FD; color: #F53646">Эксперт</div>
+          <div class='flex-item button demo' id="id_demo" style="font-weight: bold; height: 40px;background-color: #93F0FD; color: #F911FF" 
+            onclick="
+              if (document.getElementById('id_kinoframe').style.visibility =='hidden') {
+                document.getElementById('id_kinoframe').style.visibility='visible';  
+                document.getElementById('id_kinoframe').style.position='absolute';  
+                document.getElementById('id_kinoframe').style.left='0px';  
+                document.getElementById('id_kinoframe').style.top='20px';  
+              } else {
+                document.getElementById('id_kinoframe').style.visibility='hidden';
+              }              
+            ">
+            Демоверсия игры
+            <iframe id="id_kinoframe" width="320" height="auto" src="./img/videoplayback.mp4_" frameborder="1" allow="autoplay encrypted-media" allowfullscreen style="visibility: hidden;"></iframe>
+          </div>
+      </div>
+
+      <div class="flex-container" id="id_games" style="display: none">
+
+          <div class='controls'>
+
+              <div id="id_vopros" style="display: none;">
+                <center style="font-size: 24px;">Управление</center>
+                <span>Влево</span> - Numpad 4 / Shift+Стрелка влево
+                <br>
+                <span>Вправо</span> - Numpad 6 / Shift+Стрелка вправо
+                <br>
+                <span>Повернуть фигуру</span> - Numpad 8 / Shift+Стрелка вверх
+                <br>
+                <span>Ускорить фигуру</span> - Numpad 5 / Shift+Стрелка вниз
+                <br>
+                <span>Пауза/Продолжить</span> - Numpad 0*
+                <br>
+                <span>*Примечание:</span> в режиме паузы можно вручную двигать фигуру
+                <br>
+              </div>
+
+              <center>
+              <button class='left'></button>
+              <button class='right'></button>
+              <button class='up'></button>
+              <button class='down'></button>
+              <button class='pauza'></button>
+              <button class='reloadpage'></button>
+              <button class='volume'></button>
+              <button class='vopros'></button>
+              </center>
+          </div>
+
+          <div id="id_next_figure" onclick="">
+            <p class='notes'>ПАУЗА</p>
+          </div>
+
+          <div class="main">
+            
+
+            <div class="class_konec" id="id_konec" style="display: block; position: absolute; left: 0px; top: 0px; height: 100%; width:100%; z-index: 100000;  background-color: rgba(0, 0, 0, .7);">
+              <div style="background-color: #ced; position: absolute; margin-left: -100px; margin-top: -50px; top:20%; left:50%; height: auto; width:200px; padding: 10px;">
+
+                <div id="IChat" style=" visibility: hidden; position: absolute; width: 190px;height: 90px; overflow-x: hidden; border: solid red 1px; background: #ccc; font-size: 12px; ">&nbsp;</div>
+
+                <p id="id_konec_warning" style="text-align: center;">&nbsp;</p>
+
+                <p style="text-align: center;">Введите Ваше имя если Вы хотите отправить Ваши результаты на сервер</p>
+                <input type="text" id="IName" style="width:120px">
+                
+                <button style="width: 50px;" 
+                  onclick="
+                    if (FlagVisible==1) {
+                      document.getElementById('IChat').style.visibility='hidden';
+                      document.getElementById('id_konec').style.visibility='hidden';
+                      FlagVisible=0;
+                      location.reload(true); 
+                    } else {
+                      document.getElementById('id_konec_warning').style.display='none';
+                      document.getElementById('IChat').style.visibility='visible';
+                      document.getElementById('IChat').scrollTop = 9999;
+                      sendMessage();
+                      FlagVisible=1;
+                    }
+                  "
+                >Ok</button>
+              </div>
+            </div>
+
+            <div class="tetris"></div>
+
+          </div>
+
+          <div id="id_score">Ваши очки: </div>
+      </div>
+
+  <script src="./js/script.js"></script>   
+
+<script type="text/javascript">
+
+  window.onbeforeunload = function(e){
+    if (FlagGameOver==0) {
+        var message = "ВНИМАНИЕ!!!\nВы хотите нас оставить?\nНо игра ещё не закончена.\nВы потеряете Ваши результаты!";
+        if(e==undefined){
+          e = window.event;
+        }
+        if(e){
+          e.returnValue = message;
+        }
+    }
+    return message;
+  }
+
+</script>
+
+</body>
+</html>

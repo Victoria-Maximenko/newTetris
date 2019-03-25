@@ -15,7 +15,7 @@ function ShowAvtor(ws) {
   if (ws<=70) {
     ws=ws+2;
     var wsp=ws+'%';
-    document.getElementById('id_avtor').style.width =  wsp;
+    document.getElementById('id_author').style.width =  wsp;
     setTimeout(ShowAvtor, 10, ws);
   } else ShowNadpis(0);
 }
@@ -23,8 +23,8 @@ function ShowAvtor(ws) {
 function ShowNadpis(font_size) {
   if (font_size<=18) {
     font_size=font_size+0.5;
-    document.getElementById('id_nadpis').style.fontSize =  font_size+'px';
-    document.getElementById('id_nadpis').style.transform =  'rotate('+font_size*19.45+'deg)';
+    document.getElementById('id_match').style.fontSize =  font_size+'px';
+    document.getElementById('id_match').style.transform =  'rotate('+font_size*19.45+'deg)';
     setTimeout(ShowNadpis, 25, font_size);
   } else ShowButtons(0);
 
@@ -70,7 +70,7 @@ window.onload=function(e){
 }
 
 
-//var overlay = document.querySelector('.overlay');
+
 
 var modal = document.querySelector('.modal');
 
@@ -98,11 +98,7 @@ modal.addEventListener('click', function(e){
     startGame();  
   }
 
-//  if(e.target.classList.contains('button')){
-//    modal.style.display = 'none';
-//    overlay.style.display = 'none';
-//    startGame();
-//  }
+
 
 });
 
@@ -135,14 +131,11 @@ function pauseSoundLast(){
 
 function startGame(){
 
-  document.getElementsByTagName('body')[0].style.backgroundImage = 'url("img/fon1.jpg"';
+ 
 
 
   clickSoundMain();    
-/*  
-  var tetris = document.createElement('div');
-  tetris.classList.add('tetris');
-*/
+
    var tetris = document.getElementsByClassName('tetris')[0];
 
    for(var i=1; i<181; i++){
@@ -151,8 +144,7 @@ function startGame(){
       tetris.appendChild(excel);
    }
 
-//  var main = document.getElementsByClassName('main')[0];
-//  main.appendChild(tetris);
+
    var excel = document.getElementsByClassName('excel');
    var i = 0;
 
@@ -171,7 +163,7 @@ function startGame(){
             FlagMouseDown=1;
             GlobalX=x;
             GlobalY=y;
-            //flag_dvigenia=0; Pausa();    
+
           }
          }, false);
 // -------------------------------------------------------
@@ -322,8 +314,6 @@ create();
   var cvet = []; //Цвет клеточки блока
   var bordur = []; //Стиль ободка клеточки
   var score = 0;
-//  var input = document.getElementsByTagName('input')[0];
-//  input.value = `Ваши очки: ${score}`;
   var input = document.getElementById('id_score');
   input.innerHTML = `Ваши очки: ${score}`;
 
@@ -423,11 +413,9 @@ create();
           clearInterval(interval);
           pauseSoundMain();
           clickSoundLast();
-//          var elem = notes;
-//          elem.textContent=`Игра окончена! Ваши очки: ${score}`
-//          elem.style.visibility='visible';
-          document.getElementById('id_konec_warning').innerHTML=`Игра окончена!<br>Ваши очки: ${score}`;
-          document.getElementById('id_konec').style.visibility='visible';
+
+          document.getElementById('id_end_warning').innerHTML=`Игра окончена!<br>Ваши очки: ${score}`;
+          document.getElementById('id_end').style.visibility='visible';
           rezgame=score;
           FlagGameOver=1;
           break;
@@ -441,26 +429,6 @@ create();
 // Старт функции движения фигуры вниз
   var interval = setInterval(() => {
     move();
-/*
-
-  window.onhashchange =function(e){
-//    alert("Куда Вы уходите? Игра ещё не закончена!");
-    alert("Куда Вы уходите? Игра ещё не закончена!: "+document.location.hash);
-  };
-
-var randcifra =  Math.round(Math.random()*1000);
-
-document.location.hash=
-*/
-
-/*
-document.addEventListener('popstate', function() {
-  alert('9999999');
-}, false);
-*/
-
-
-
   }, speed);
   var flag=true;
 //---------------------------------------------------
@@ -573,16 +541,16 @@ window.addEventListener('keydown', function (e){
    var coordinates4=[figureBody[3].getAttribute('posX'),figureBody[3].getAttribute('posY')];
 
 //Выполняется только с нажатой клавишей Shift
-   if (e.shiftKey && ( e.keyCode == 37) || ( e.keyCode == 100) )    {
+   if (( e.keyCode == 37) || ( e.keyCode == 100) )    {
       event.preventDefault();
       getNewState(-1,coordinates1,coordinates2,coordinates3,coordinates4);//влево
-   } else if (e.shiftKey && ( e.keyCode == 39) || ( e.keyCode == 102) ) { 
+   } else if (( e.keyCode == 39) || ( e.keyCode == 102) ) { 
       event.preventDefault();
       getNewState(1,coordinates1,coordinates2,coordinates3,coordinates4);//вправо
-   } else if (e.shiftKey && ( e.keyCode == 40) || ( e.keyCode == 101) ) { 
+   } else if (( e.keyCode == 40) || ( e.keyCode == 101) ) { 
       event.preventDefault();
       move();//вниз
-   } else if (e.shiftKey && ( e.keyCode == 38) || ( e.keyCode == 104) ) { //вверх = крутить фигуру
+   } else if ( ( e.keyCode == 38) || ( e.keyCode == 104) ) { //вверх = крутить фигуру
       event.preventDefault();
       getRotate(coordinates1,coordinates2,coordinates3,coordinates4);
    } else if (e.keyCode == 96){ //NumPad 0 = пауза/продолжение игры
@@ -618,7 +586,6 @@ right_knopka.addEventListener('click', function (e){
 // Клик мышкой по кнопке со стрелкой вверх
 var up_knopka = document.querySelector('.up');
 up_knopka.addEventListener('click', function (e){
-//    event.preventDefault();
    var c1=[figureBody[0].getAttribute('posX'),figureBody[0].getAttribute('posY')];
    var c2=[figureBody[1].getAttribute('posX'),figureBody[1].getAttribute('posY')];
    var c3=[figureBody[2].getAttribute('posX'),figureBody[2].getAttribute('posY')];
@@ -629,7 +596,6 @@ up_knopka.addEventListener('click', function (e){
 // Клик мышкой по кнопке со стрелкой вниз
 var down_knopka = document.querySelector('.down');
 down_knopka.addEventListener('click', function (e){
-//    event.preventDefault();
    var c1=[figureBody[0].getAttribute('posX'),figureBody[0].getAttribute('posY')];
    var c2=[figureBody[1].getAttribute('posX'),figureBody[1].getAttribute('posY')];
    var c3=[figureBody[2].getAttribute('posX'),figureBody[2].getAttribute('posY')];
@@ -638,9 +604,8 @@ down_knopka.addEventListener('click', function (e){
 });
 
 // Клик мышкой по кнопке с паузой
-var pauza_knopka = document.querySelector('.pauza');
+var pauza_knopka = document.querySelector('.stop');
 pauza_knopka.addEventListener('click', function (e){
-//    event.preventDefault();
    Pausa();
 });
 
@@ -656,7 +621,6 @@ volume_knopka.addEventListener('click', function (e){
   if (VolumeZvuk==1) {
     volume_knopka.style.backgroundImage = "url('./img/volume1.png')";
     clickSoundMain();
-//    clickSoundLast();
     VolumeZvuk=0;    
   } else {
     volume_knopka.style.backgroundImage = "url('./img/volume2.png')";
@@ -667,12 +631,12 @@ volume_knopka.addEventListener('click', function (e){
 });
 
 // Клик мышкой по кнопке с вопросом
-var vopros_knopka = document.querySelector('.vopros');
+var vopros_knopka = document.querySelector('.question');
 vopros_knopka.addEventListener('click', function (e){
-  if (document.getElementById('id_vopros').style.display == 'block') {
-    document.getElementById('id_vopros').style.display = 'none';
+  if (document.getElementById('id_question').style.display == 'block') {
+    document.getElementById('id_question').style.display = 'none';
   } else {
-    document.getElementById('id_vopros').style.display = 'block';
+    document.getElementById('id_question').style.display = 'block';
   }
 });
 
@@ -732,7 +696,7 @@ vopros_knopka.addEventListener('click', function (e){
           if ( callresult.result!="" ) { // либо строка пустая - сообщений нет
               // либо в строке - JSON-представление массива сообщений
               messages=JSON.parse(callresult.result); 
-              // вдруг кто-то сохранил мусор вместо LOKTEV_CHAT_MESSAGES?
+              // вдруг кто-то сохранил мусор?
               if ( !Array.isArray(messages) )
                   messages=[];
           }
@@ -765,7 +729,7 @@ vopros_knopka.addEventListener('click', function (e){
           if ( callresult.result!="" ) { // либо строка пустая - сообщений нет
               // либо в строке - JSON-представление массива сообщений
               messages=JSON.parse(callresult.result); 
-              // вдруг кто-то сохранил мусор вместо LOKTEV_CHAT_MESSAGES?
+              // вдруг кто-то сохранил мусор?
               if ( !Array.isArray(messages) )
                   messages=[];
           }
@@ -774,7 +738,6 @@ vopros_knopka.addEventListener('click', function (e){
           if (senderName=='') {
             senderName='Anonim';
           }
-//          var message=document.getElementById('IMess').value;
          var message=rezgame;
 
           messages.push( { name:senderName, mess:message } );

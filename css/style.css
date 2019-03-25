@@ -1,18 +1,12 @@
-BODY {
+body {
   padding: 0px;
   margin: : 0px;
-  background: url('../img/fon.png') no-repeat;
-  background-attachment: fixed; /* Фиксируем фон веб-страницы */
-  -moz-background-size: 100%; /* Firefox 3.6+ */
-  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-  -o-background-size: 100%; /* Opera 9.6+ */
-  background-size: 100%; /* Современные браузеры */
+  background-color: #C8E5F9;
   font-family: Arial;
-/*     box-sizing: border-box; */
+
 }
 .flex-container {
   display: flex;
-  /*  flex-wrap: nowrap;*/
   flex-wrap: wrap;
   padding: 10px;
   border-radius: 10px;
@@ -33,7 +27,7 @@ BODY {
 }
 
 .button {
-  border: 2px solid #93F0FD;
+  border: 3px solid purple;
   width: 300px;
   text-align: center;
   margin-bottom: 20px;
@@ -51,23 +45,18 @@ BODY {
 
 .controls {
   position: relative;
-  background: #DBFDFD;
-  /*    display: flex;
-  /*    flex-direction: column;*/
-  /*    justify-content: center;*/
+  background: #C8E5F9;
   padding: 10px;
+  border: 3px solid #B0E0E6;
+  border-radius: 20px;
 }
 
 #id_next_figure {
   position: relative;
   display: block;
   width: 50px;  height: 50px; 
-/*  width: 20px;  height: 20px; */
-
   background: url('../img/pusto.png') no-repeat;
   background-size: contain; /* Масштабируем фон */  
-
-/*  margin: 30px auto; */
   font-size: 24px;
   padding: 10px;
   margin: 10px;
@@ -76,10 +65,10 @@ BODY {
 .main {
   position: relative;
   border: 5px solid #B0E0E6;
-  width: 510px;
+  width: 500px;
   height: 700px;
   overflow:hidden;
-  background-color: #cdd;
+  background-color: #B0E0E6;
 }
 
 .tetris {
@@ -108,19 +97,19 @@ border-color: #D8F0EF;
   position: relative;
   display: block;
   width: 280px;
-  background-color: #DBFDFD;
+  background-color: #C8E5F9;
   color: #5366D8;
-  border-color: #18C5CF;
-  border-radius: 20px;
-
   margin: 30px auto;
   font-size: 34px;
   padding: 10px;
   margin: 10px;
+  border: 3px solid #B0E0E6;
+  border-radius: 20px;
+  text-align: center;
 }
 
 
-.class_konec {
+.class_end {
   visibility: hidden; 
 }
 
@@ -144,7 +133,6 @@ height: 500px;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-background-color: #fff;
 z-index:3;
 display: flex;
 align-items: center;
@@ -184,12 +172,6 @@ visibility: hidden;
 
 
 .up {
-/*
-position: absolute;
-top: 80px;
-right:400px;
-*/
-
   width: 40px;
   height: 40px;
   background: url('../img/up.png') no-repeat top;
@@ -199,10 +181,6 @@ right:400px;
 
 
 .left {
-/*
-position: absolute;
-top: 120px;
-*/
   width: 40px;
   height: 40px;
   background: url('../img/left.png') no-repeat top;
@@ -211,11 +189,6 @@ top: 120px;
 }
 
 .right {
-  /*
-position: absolute;
-top: 120px;
-right: 350px;
-  */
   width: 40px;
   height: 40px;
   background: url('../img/right.png') no-repeat top;
@@ -225,12 +198,6 @@ right: 350px;
   border-radius: 20px;
 }
 .down {
-/*
-position: absolute;
-top: 160px;
-right: 400px;
-
-*/
   width: 40px;
   height: 40px;
   background: url('../img/down.png') no-repeat top;
@@ -240,7 +207,7 @@ right: 400px;
   border-radius: 20px;
 }
 
-.pauza {
+.stop {
   width: 40px;
   height: 40px;
   background: url('../img/pauza.png') no-repeat top;
@@ -271,7 +238,7 @@ right: 400px;
   border-radius: 20px;
 }
 
-.vopros {
+.question {
   width: 40px;
   height: 40px;
   background: url('../img/vopros.png') no-repeat top;
@@ -289,10 +256,6 @@ right: 400px;
 
 @media screen and (max-width: 1440px) {
 
-  BODY {
-    background: url(../img/fon.jpg) no-repeat;
-  }
-
   .controls {
     width: 50vw;
   }
@@ -300,9 +263,7 @@ right: 400px;
 }
 
 @media screen and (max-width: 1366px) {
-  BODY {
-    background: url(../img/fon.jpg) no-repeat;
-  }
+
   .controls {
     width: 50vw;
   }
@@ -310,9 +271,7 @@ right: 400px;
 }
 
 @media screen and (max-width: 1280px) {
-  BODY {
-    background: url(../img/fon.jpg) no-repeat;
-  }
+ 
 
   .controls {
     width: 50vw;
@@ -323,9 +282,7 @@ right: 400px;
 /*----- Tablet landscape -----*/
 
 @media screen and (max-width: 1024px) {
-  BODY {
-    background: url(../img/fon.jpg) no-repeat;
-  }
+  
   .controls {
     width: 50vw;
   }
@@ -335,27 +292,18 @@ right: 400px;
 /*----- Tablet portrait -----*/
 
 @media screen and (max-width: 768px) {
-  BODY {
-    background: url(../img/fon.jpg) no-repeat;
-  }
+
   .controls {
     width: 50vw;
   }
 
 }
 
-@media screen and (max-width: 720px) {
-  BODY {
-    background: url(../img/fon0.png) no-repeat;
-  }
 
-}
 
 /*----- Phone -----*/
 @media screen and (max-width: 540px) {
-  BODY {
-    background: url(../img/fon0.png) no-repeat;
-  }
+  
   .controls {
     width: 85vw;
   }
@@ -375,9 +323,7 @@ height: 40px;
 }
 }
 @media screen and (max-width: 480px) {
-  BODY {
-    background: url(../img/fon0.png) no-repeat;
-  }
+
   .controls {
     width: 85vw;
   }
@@ -402,9 +348,7 @@ padding: 10px;
 }
 
 @media screen and (max-width: 375px) {
-  BODY {
-    background: url(../img/fon0.png) no-repeat;
-  }
+ 
   .controls {
     width: 85vw;
   }
@@ -422,9 +366,7 @@ font-size: 16px;
 }
 
 @media screen and (max-width: 320px) {
-  BODY {
-    background: url(../img/fon0.png) no-repeat;
-  }
+  
   .controls {
     width: 85vw;
   }

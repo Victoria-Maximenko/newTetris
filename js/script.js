@@ -540,7 +540,7 @@ window.addEventListener('keydown', function (e){
    var coordinates3=[figureBody[2].getAttribute('posX'),figureBody[2].getAttribute('posY')];
    var coordinates4=[figureBody[3].getAttribute('posX'),figureBody[3].getAttribute('posY')];
 
-//Выполняется только с нажатой клавишей Shift
+
    if (( e.keyCode == 37) || ( e.keyCode == 100) )    {
       event.preventDefault();
       getNewState(-1,coordinates1,coordinates2,coordinates3,coordinates4);//влево

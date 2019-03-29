@@ -113,9 +113,11 @@ function vibro(longFlag) {
 
 var clickMainAudio = new Audio('sound/main.mp3');
 function clickSoundMain(){
+  clickMainAudio.loop="true";
  clickMainAudio.play();
 };
 function pauseSoundMain(){
+  clickMainAudio.loop="false";
  clickMainAudio.pause();
 };
 
